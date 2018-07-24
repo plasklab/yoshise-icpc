@@ -27,7 +27,6 @@ public class Main {
 			Com = br.readLine();
 			com = Com.split(" ");
 			if(com[0].equals("insert")){
-				//com = Com.split(" ");
 				key = Integer.parseInt(com[1]);
 				insert(key);
 			}else if(com[0].equals("deleteFirst")){
@@ -59,16 +58,6 @@ public class Main {
 			}
 			x = x.p;
 		}
-		/*
-		if(de == x.key) {
-			x.p.n = x.n;
-			x.n.p = x.p;
-			return;
-		} else if(ci.key == x.key){
-			return;
-		}
-		deleat(de, x.p);
-		*/
 	}
 	
 	static void deleteFL(Node x){
@@ -87,13 +76,14 @@ public class Main {
 	}
 	
 	static void print(Node u) {
-		if (u.key == ci.key) return;
-		if (u != ci.n){
-			System.out.print(u.key + " ");
-		} else {
-			System.out.println(u.key);
+		while(u != ci){
+			if (u != ci.n){
+				System.out.print(u.key + " ");
+			} else {
+				System.out.println(u.key);
+			}
+			u = u.p;
 		}
-		print(u.p);
 	}
 }
 
